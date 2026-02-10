@@ -1,0 +1,27 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local models (LLMs)
+models/
+
+# Streamlit
+.streamlit/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Environment variables
+.env
