@@ -46,7 +46,7 @@ st.write("Ask questions over your documents using a local LLM.")
 
 
 # Document input
-st.subheader("1️⃣ Ingest documents")
+st.subheader("Ingest documents")
 
 
 docs_input = st.text_area(
@@ -77,14 +77,14 @@ with col2:
 if ingest_clicked:
     docs = []
 
-    # 1️⃣ Uploaded files (TXT + PDF)
+    # Uploaded files (TXT + PDF)
     if uploaded_files:
         for file in uploaded_files:
             content = read_uploaded_file(file)
             if content.strip():
                 docs.append(content)
 
-    # 2️⃣ Pasted text
+    # Pasted text
     pasted_docs = [
         d.strip()
         for d in st.session_state.docs_input.split("---")
@@ -107,7 +107,7 @@ if ingest_clicked:
 
 
 # Query section
-st.subheader("2️⃣ Ask a question")
+st.subheader("Ask a question")
 
 question = st.text_input(
     "Your question",
