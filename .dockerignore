@@ -11,9 +11,7 @@ __pycache__
 .gitignore
 
 # Models
-models/
-*.gguf
-
+models
 
 # Notebooks
 notebooks
