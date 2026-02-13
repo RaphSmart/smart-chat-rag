@@ -16,7 +16,7 @@ This project runs **entirely offline**:
 - Get **grounded answers** based only on retrieved context
 - Clear/reset documents and start fresh
 - Fully local LLM inference (via `llama.cpp`)
-- Simple web UI built with Streamlit
+- Simple local web UI built with Streamlit
 
 ---
 
@@ -91,9 +91,24 @@ uvicorn src.api.main:app --reload
 streamlit run src/ui/app.py
 ```
 
-## How to use the app
-- Upload a pdf or txt file, or paste a text in the box
-- Click Ingest Documents
-- Ask a question 
-- Click Ask
-- Receive answer from the document
+Then open links in browser
+```bash
+UI: http://localhost:8501
+API: http://localhost:8000/docs
+```
+
+## Docker with the app
+
+docker build --no-cache -t smart_rag . 
+
+### Run from consol
+docker run -it --rm \
+  -p 8000:8000 \
+  -v $(pwd)/models:/app/models \
+  smart_rag \
+  uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+
+## docker-compose with the app
+```bash
+docker-compose up
+```

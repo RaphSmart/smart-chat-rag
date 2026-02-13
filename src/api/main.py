@@ -42,4 +42,4 @@ def query_docs(request: QueryRequest):
 
 @app.get("/")
 def root():
-    return {"status": "RAG API running"}
+    return {"status": "Smart RAG API running"}

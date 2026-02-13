@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 from pypdf import PdfReader
+import time
+import os
 
 # Code below is add to activate clear button
 if "docs_input" not in st.session_state:
@@ -36,7 +38,10 @@ def read_uploaded_file(file):
     return ""
 # end pdf upload
 
-API_BASE_URL = "http://localhost:8000"
+
+API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+
+# API_BASE_URL = "http://localhost:8000"
 
 
 st.set_page_config(page_title="Smart RAG Chat", layout="centered")
@@ -94,16 +99,19 @@ if ingest_clicked:
 
     if not docs:
         st.warning("Please upload or paste at least one document.")
-    else:
+    try:
         response = requests.post(
             f"{API_BASE_URL}/ingest",
-            json={"documents": docs}
+            json={"documents": docs},
+            timeout=60
         )
-
-        if response.status_code == 200:
-            st.success("Documents ingested successfully!")
-        else:
-            st.error("Failed to ingest documents.")
+    except requests.exceptions.RequestException:
+        st.error("API is still starting. Please wait a few seconds and try again.")
+        st.stop()
+    if response.status_code == 200:
+        st.success("Documents ingested successfully!")
+    else:
+        st.error("Failed to ingest documents.")
 
 
 # Query section

@@ -1,0 +1,10 @@
+numpy<2
+fastapi
+uvicorn
+streamlit
+requests
+sentence-transformers
+faiss-cpu
+pypdf
+llama-cpp-python
+

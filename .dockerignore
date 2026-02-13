@@ -1,0 +1,28 @@
+# Virtual environments
+.venv
+venv
+
+# Python cache
+__pycache__
+*.pyc
+
+# Git
+.git
+.gitignore
+
+# Models
+models/
+*.gguf
+
+
+# Notebooks
+notebooks
+
+# Data
+data
+
+# OS files
+.DS_Store
+
+# HuggingFace cache
+.cache
