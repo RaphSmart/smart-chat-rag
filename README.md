@@ -61,9 +61,12 @@ Answer
 ###  Clone the repository
 
 ```bash
-git clone https://github.com/RaphSmart/smart-chat-rag
-cd doc-chat-rag
+git clone <https://github.com/RaphSmart/smart-chat-rag>
+cd smart-chat-rag
 ```
+
+#### To run with Docker you can skip the steps below to the last step (docker compose)
+
 
 Create and activate a virtual environment
 ```bash
@@ -98,9 +101,8 @@ API: http://localhost:8000/docs
 ```
 
 ## Docker with the app
-```bash
+
 docker build --no-cache -t smart_rag . 
-```
 
 ### Run from consol
 docker run -it --rm \
@@ -113,3 +115,4 @@ docker run -it --rm \
 ```bash
 docker-compose up
 ```
+
